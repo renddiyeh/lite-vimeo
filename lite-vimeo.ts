@@ -113,6 +113,17 @@ export class LiteVimeoEmbed extends HTMLElement {
     }
   }
 
+  get muted(): boolean {
+    return this.hasAttribute('muted');
+  }
+
+  set muted(value: boolean) {
+    if (value) {
+      this.setAttribute('muted', '');
+    } else {
+      this.removeAttribute('muted');
+    }
+  }
 
   /**
    * Define our shadowDOM for the component
@@ -289,8 +300,13 @@ export class LiteVimeoEmbed extends HTMLElement {
        *  </iframe>
        */
       // FIXME: add a setting for autoplay
-      const apValue = ((this.autoLoad && this.autoPlay) || (!this.autoLoad)) ?
-                        "autoplay=1" : "";
+      const apValue = new URLSearchParams();
+      if ((this.autoLoad && this.autoPlay) || (!this.autoLoad)) {
+        apValue.set('autoplay', '1');
+      }
+      if (this.muted) {
+        apValue.set('muted', '1');
+      }
       const srcUrl = new URL(
         `/video/${this.videoId}?${apValue}&#t=${this.videoStartAt}`,
         "https://player.vimeo.com/"

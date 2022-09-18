@@ -1,10 +1,13 @@
 {
-  "name": "@slightlyoff/lite-vimeo",
+  "name": "@renddiyeh/lite-vimeo",
   "description": "A web component that loads Vimeo embed iframes faster. ShadowDom based version of Paul Irish' concept.",
-  "author": "Alex Russell <slightlyoff@gmail.com>",
+  "authors": [
+    "Alex Russell <slightlyoff@gmail.com>",
+    "Renddi Yeh <yrj1989@gmail.com>"
+  ],
   "repository": {
     "type": "git",
-    "url": "git@github.com:slightlyoff/lite-vimeo.git"
+    "url": "git@github.com:renddiyeh/lite-vimeo.git"
   },
   "scripts": {
     "build": "tsc --project tsconfig.json",
@@ -19,7 +22,7 @@
     "lite-vimeo.js.map"
   ],
   "license": "MIT",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "main": "lite-vimeo.js",
   "module": "lite-vimeo.js",
   "types": "lite-vimeo.d.ts",
